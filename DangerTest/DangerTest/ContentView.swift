@@ -12,11 +12,18 @@ struct ContentView: View {
     @State var text: String = ""
     
     var body: some View {
-    Text(text)
-            .padding()
-                .onAppear {
-            text = "TEST APPEAR"
+        Text(text)
+        .padding()
+            .onAppear {
+                text = "TEST APPEAR"
+                let a = A()
             }
+    }
+}
+
+class A {
+    func b() {
+        var c = 1
     }
 }
 
