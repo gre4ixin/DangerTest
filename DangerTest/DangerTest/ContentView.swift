@@ -15,7 +15,7 @@ struct ContentView: View {
         Text(text)
             .padding()
             .onAppear {
-                text = "TEST APPEAR"
+            text = "TEST APPEAR"
             }
     }
 }
