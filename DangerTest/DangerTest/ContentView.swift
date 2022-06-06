@@ -12,11 +12,11 @@ struct ContentView: View {
     @State var text: String = ""
     
     var body: some View {
-        Text(text)
+    Text(text)
             .padding()
-        .onAppear {
-        text = "TEST APPEAR"
-        }
+                .onAppear {
+            text = "TEST APPEAR"
+            }
     }
 }
 
