@@ -1,7 +1,7 @@
 import Danger
 
 let danger = Danger()
-SwiftLint.lint(inline: true, configFile: ".swiftlint.yml")
+SwiftLint.lint(inline: true)
 
 let allSourceFiles = danger.git.modifiedFiles + danger.git.createdFiles
 
