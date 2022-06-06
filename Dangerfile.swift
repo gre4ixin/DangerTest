@@ -18,8 +18,9 @@ if danger.github.pullRequest.title.contains("WIP") {
 }
 
 markdown("## File changed")
+
 for file in diffFiles { 
     message("\(file)")
 }
 
-SwiftLint.lint(.modifiedAndCreatedFiles(directory: nil))
+SwiftLint.lint(.modifiedAndCreatedFiles(directory: nil), inline: true)
