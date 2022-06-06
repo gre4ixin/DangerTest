@@ -5,7 +5,7 @@ let github = danger.github
 
 let diffFiles = danger.git.modifiedFiles + danger.git.createdFiles
 
-if github.pullRequest.title.contains("IOS-") {
+if danger.github.pullRequest.title.contains("IOS-") {
     warn("Fix title of pull request")
 }
 
