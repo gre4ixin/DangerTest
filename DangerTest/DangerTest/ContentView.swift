@@ -14,9 +14,9 @@ struct ContentView: View {
     var body: some View {
         Text(text)
             .padding()
-            .onAppear {
-            text = "TEST APPEAR"
-            }
+        .onAppear {
+        text = "TEST APPEAR"
+        }
     }
 }
 
