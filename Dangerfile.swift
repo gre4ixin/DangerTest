@@ -18,4 +18,4 @@ warn("Something pretty bad, but not important enough to fail the build")
 
 markdown("Free-form markdown that goes under the table, so you can do whatever.")
 
-SwiftLint.lint(.all)
+SwiftLint.lint(.all(directory: nil))
