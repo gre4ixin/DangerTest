@@ -1,21 +1,22 @@
 import Danger
 
 let danger = Danger()
+let github = danger.github
 
-let allSourceFiles = danger.git.modifiedFiles + danger.git.createdFiles
+let diffFiles = danger.git.modifiedFiles + danger.git.createdFiles
 
-let changelogChanged = allSourceFiles.contains("CHANGELOG.md")
-let sourceChanges = allSourceFiles.first(where: { $0.hasPrefix("Sources") })
-
-if !changelogChanged && sourceChanges != nil {
-  warn("No CHANGELOG entry added.")
+if github.pullRequest.title.contains("IOS-") {
+    warn("Fix title of pull request")
 }
 
-// You can use these functions to send feedback:
-message("Highlight something in the table")
-warn("Something pretty bad, but not important enough to fail the build")
-// fail("Something that must be changed")
+if (danger.github.pullRequest.additions ?? 0) > 350 {
+    warn("Big PR, try to keep changes smaller if you can")
+}
 
-markdown("Free-form markdown that goes under the table, so you can do whatever.")
+if danger.github.pullRequest.title.contains("WIP") {
+    warn("PR is classed as Work in Progress")
+}
 
-SwiftLint.lint(.all(directory: nil))
+message("\(diffFiles)")
+
+SwiftLint.lint(.modifiedAndCreatedFiles(directory: nil))
