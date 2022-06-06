@@ -17,6 +17,9 @@ if danger.github.pullRequest.title.contains("WIP") {
     warn("PR is classed as Work in Progress")
 }
 
-message("\(diffFiles)")
+message("File changed")
+for file in diffFiles { 
+    message("\(file)")
+}
 
 SwiftLint.lint(.modifiedAndCreatedFiles(directory: nil))
